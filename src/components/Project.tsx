@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import RenameProject from './RenameProject'
 import {MdEditRoad} from 'react-icons/md'
 import {FcCancel} from 'react-icons/fc'
+import Modal from './Modal'
 
 function Project({project, edit}) {
+
+    const [showModal, setShowModal] = useState(false)
     return (
         <div className='Project'>
             <div className="name">
@@ -12,7 +15,10 @@ function Project({project, edit}) {
             <div className="btns">
                 {
                     edit ? <div className="edit-delete">
-                    <span className="edit">
+                    <span
+                     className="edit"
+                     onClick={ () => setShowModal(true)}
+                     >
                         <MdEditRoad size={16}/>
                     </span>
                     <span className="delete">
@@ -27,6 +33,13 @@ function Project({project, edit}) {
                 }
                 
             </div>
+            <Modal
+                showModal={showModal}
+                setShowModal={setShowModal}
+            >
+                <RenameProject project={project} setShowModal={setShowModal}/>
+            
+            </Modal>
         </div>
     )
 }
