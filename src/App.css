@@ -1,5 +1,37 @@
+/* Arapey */
+/* font-family: 'Arapey', serif; */
+@import url('https://fonts.googleapis.com/css2?family=Arapey&display=swap');
+
+/* Rubik Iso */
+/* font-family: 'Rubik Iso', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik Iso', cursive;
+}
+
 /* App */
 
 .App {
   display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Siderbar */
+
+.Sidebar {
+  background-color: aqua;
+  width: 300px;
+  min_width: 210px;
+  height: 100%;
+}
+
+/* Main */
+.Main {
+  background: url();
 }
