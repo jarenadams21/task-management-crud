@@ -1,11 +1,11 @@
 import React from 'react'
-import logo from './images/woodstock.jpeg'
+import {GiZigzagLeaf} from 'react-icons/gi'
 
 function User() {
     return (
         <div className='User'>
             <div className="logo">
-                <img src={logo} alt="logo"/>
+                <GiZigzagLeaf size={40}/>
             </div>
             <div className='info'>
                 <p>JShape</p>
