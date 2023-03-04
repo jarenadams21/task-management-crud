@@ -6,12 +6,14 @@ import {RxCalendar} from 'react-icons/rx'
 import {GiTreeDoor} from 'react-icons/gi'
 import {GrProjects} from 'react-icons/gr'
 import {FcCancel} from 'react-icons/fc'
+import { DatePicker, TimePicker, MuiPickersUtilsProvider } from '@material-ui/pickers';
+import DateFnsUtils from '@date-io/date-fns';
 
 function AddNewTodo() {
     const [showModal, setShowModal] = useState(false)
     const [text, setText] = useState('')
-    const [day, setDay] = useState(new Date())
-    const [time, setTime] = useState(new Date())
+    const [day, setDay] = React.useState<Date | null>(new Date());
+    const [time, setTime] = React.useState<Date | null>(new Date());
      
     return (
         <div className='AddNewTodo'>
@@ -21,6 +23,7 @@ function AddNewTodo() {
             </button>
             </div>
             <Modal showModal={showModal} setShowModal={setShowModal}>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
                 <form>
                     <div className="text">
                         <h3>Add new to do?</h3>
@@ -41,14 +44,21 @@ function AddNewTodo() {
                             <RxCalendar/>
                             <p>Choose a day</p>
                         </div>
-                        date-picker
+                        <DatePicker
+                        value={day}
+                        onChange={day => setDay(day)}
+                        />
                     </div>
                     <div className="pick-time">
                         <div className="title">
                             <TiTime/>
                             <p>Choose a time</p>
                         </div>
-                        time-picker
+                        <TimePicker
+                        value={time}
+                        onChange={time => setTime(time)}
+                        />
+
                     </div>
                     <div className="pick-project">
                         <div className="title">
@@ -71,6 +81,7 @@ function AddNewTodo() {
                         <button>+ Add to graph</button>
                     </div>
                 </form>
+                </MuiPickersUtilsProvider>
             </Modal>
         </div>
     )
