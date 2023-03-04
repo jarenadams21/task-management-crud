@@ -27,11 +27,15 @@
 .Sidebar {
   background-color: aqua;
   width: 300px;
-  min_width: 210px;
+  min-width: 210px;
   height: 100%;
 }
 
 /* Main */
 .Main {
-  background: url();
+  width: 100%;
+  height: 100%;
+  background-image: url('./images/bg_sup_comp.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
