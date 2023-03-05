@@ -46,3 +46,6 @@
     * React Icons logo instead of custom logo in local folder
     # heading, showButtons, setShowModal are hacked to be empty/false instead of default
         values being assumed in logic
+
+# Base Application Credits
+    * Code Explained - React + Firebase TODO
