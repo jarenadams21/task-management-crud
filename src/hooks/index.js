@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import firebase from '../firebase'
+import moment from 'moment'
 
 export function useTodos() {
     const [todos, setTodos] = useState([])
@@ -21,6 +22,40 @@ export function useTodos() {
     }, [])
 
     return todos
+}
+
+export function useFilterTodos(todos, selectedProject) {
+
+    const [filteredTodos, setFilteredTodos] = useState([])
+
+    useEffect( () => {
+
+        let data;
+        const todayDateFormatted = moment().format('MM/DD/YYYY')
+
+        if(selectedProject === 'today') {
+            data = todos.filter(todo => todo.date === todayDateFormatted)
+        } else if(selectedProject === 'next 7 days') {
+
+            data = todos.filter( todo => {
+                const todoDate = moment(todo.date, 'MM/DD/YYYY')
+                const todayDate = moment(todayDateFormatted, 'MM/DD/YYYY')
+
+                const differenceDays = todoDate.diff(todayDate, 'days')
+
+                return differenceDays >= 0 && differenceDays < 7
+            })
+        } else if (selectedProject === 'all days') {
+            data = todos
+        }
+        else {
+            data = todos.filter(todo => todo.projectName === selectedProject)
+        }
+
+        setFilteredTodos(data)
+    }, [todos, selectedProject])
+
+    return filteredTodos
 }
 
 export function useProjects(todos) {
