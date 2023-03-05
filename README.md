@@ -28,3 +28,5 @@
     * const [date, setDate] = React.useState<Date | null>(new Date());
         - Allowed useState usage with MaterialUI
     * React Icons logo instead of custom logo in local folder
+    # heading, showButtons, setShowModal are hacked to be empty/false instead of default
+        values being assumed in logic
