@@ -1,3 +1,8 @@
+# How to Use
+    * In terminal within the root directory, 
+        - npm i
+        - npm start
+
 # Design Choices
     * tsconfig has been updated, setting "noImplicitAny" to false to tell
         my application that there is an implicit "any" for the purposes of prop paramaters of the functional components
