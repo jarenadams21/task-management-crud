@@ -1,5 +1,4 @@
 import React from 'react'
-import { setTextRange } from 'typescript'
 import {TiTime} from 'react-icons/ti'
 import {RxCalendar} from 'react-icons/rx'
 import {GiTreeDoor} from 'react-icons/gi'
