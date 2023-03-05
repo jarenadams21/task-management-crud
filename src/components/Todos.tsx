@@ -1,10 +1,11 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Todo from './Todo'
 import Next7Days from './Next7Days'
+import {TodoContext} from '../context'
 
 function Todos() {
 
-    const selectedProject = "next 7 days"
+    const { selectedProject } = useContext(TodoContext)
 
     const todos = [
         {
@@ -37,7 +38,7 @@ function Todos() {
             </div>
             <div className="todos">
                 {
-                    selectedProject !== "next 7 days" ? 
+                    selectedProject === "next 7 days" ? 
                     <Next7Days todos={todos} />
                     :
                     todos.map( todo => 

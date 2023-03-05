@@ -1,15 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import RenameProject from './RenameProject'
 import {MdEditRoad} from 'react-icons/md'
 import {FcCancel} from 'react-icons/fc'
 import Modal from './Modal'
+import {TodoContext} from '../context'
 
 function Project({project, edit}) {
+    // CONTEXT
+    const { setSelectedProject } = useContext(TodoContext)
 
+    //STATE
     const [showModal, setShowModal] = useState(false)
+
     return (
         <div className='Project'>
-            <div className="name">
+            <div 
+            className="name"
+            onClick={() => setSelectedProject(project.name)}>
                 {project.name}
             </div>
             <div className="btns">

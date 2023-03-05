@@ -1,9 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {GiAztecCalendarSun, GiGlowingArtifact} from 'react-icons/gi'
 import {calendarContents} from '../constants'
+import {TodoContext} from '../context'
 
 function Calendar() {
-    
+    //CONTEXT
+    const { setSelectedProject } = useContext(TodoContext)
+
     return (
         <div className='Calendar'>
             <div className="header">
@@ -20,7 +23,7 @@ function Calendar() {
             <div className="items">
                 {
                     calendarContents.map( item => 
-                     <div className="item" key={item}>
+                     <div className="item" key={item} onClick={() => setSelectedProject(item)}>
                       {item}
                     </div>
 
