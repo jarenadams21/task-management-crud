@@ -67,7 +67,8 @@ function TodoForm({
                         </div>
                         <div className="projects">
                             {
-                                projects.map( project =>
+                                projects.length > 0 ? 
+                                (projects.map( project =>
 
                                     <div className={`project ${todoProject === project.name ? "active" : ""}`}
                                     key={project.id}
@@ -75,7 +76,7 @@ function TodoForm({
                                     >
                                         {project.name}
                                     </div>
-                                )
+                                )) : <div style={{color : '#ff0000'}}>Please add a project before proceeding</div>
                             }
                         </div>
                     </div>

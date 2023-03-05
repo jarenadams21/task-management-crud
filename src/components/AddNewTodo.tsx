@@ -16,9 +16,6 @@ function AddNewTodo() {
     const [todoProject, setTodoProject] = useState(selectedProject)
 
     const projects = [
-        {id : 1, name: "personal", numOfTodos : 0 },
-        {id : 2, name: "work", numOfTodos : 1 },
-        {id : 3, name: "other", numOfTodos : 2 }
     ]
      
     function handleSubmit(e) {
