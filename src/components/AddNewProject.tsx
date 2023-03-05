@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {MdAddTask} from 'react-icons/md'
 import Modal from './Modal'
 import ProjectForm from './ProjectForm'
+import firebase from '../firebase'
 
 function AddNewProject() {
 
@@ -10,6 +11,31 @@ function AddNewProject() {
     
     function handleSubmit(e) {
 
+        e.preventDefault()
+
+        if(projectName) {
+            const projectsRef = firebase.firestore().collection('projects')
+
+            projectsRef
+            .where('name', '==', projectName)
+            .get()
+            .then( querySnapshot => {
+
+                if(querySnapshot.empty) {
+                    projectsRef
+                    .add(
+                        {
+                            name : projectName
+                        }
+                    )
+                } else {
+                    alert('Project already exists!')
+                }
+            })
+
+            setShowModal(false)
+            setProjectName('')
+        }
     }
 
     return (
