@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import AddNewProject from './AddNewProject'
 import Project from './Project'
 import {TiFolderOpen} from 'react-icons/ti'
 import {MdEditRoad} from 'react-icons/md'
 import {GiAztecCalendarSun, GiGlowingArtifact} from 'react-icons/gi'
 import {MdAddTask} from 'react-icons/md'
+import { TodoContext } from '../context'
 
 function Projects() {
 
@@ -12,11 +13,8 @@ function Projects() {
     const [edit, setEdit] = useState(false)
     const pencilColor = edit ? "#1EC94C" : "#000000"
 
-    const projects = [
-        {id : 1, name: "personal", numOfTodos : 0 },
-        {id : 2, name: "work", numOfTodos : 1 },
-        {id : 3, name: "other", numOfTodos : 2 }
-    ]
+    //CONTEXT
+    const { projects } = useContext(TodoContext)
 
     return (
         <div className='Projects'>

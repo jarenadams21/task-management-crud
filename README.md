@@ -14,6 +14,7 @@
     * CSS
     * MaterialUI
     * Firebase
+    * Moment JS
 
 
 # Node Progression
@@ -28,6 +29,16 @@
     * npm i
     * npm i @date-io/date-fns@1.x date-fns
     * npm install @material-ui/core
+## Database
+    * npm install --save firebase
+
+## Moment JS
+    * npm install moment --save
+
+## Random Utilities
+
+### Random Color
+    * npm install randomcolor --save
 
 # Random Hacks/Fixes
     * const [date, setDate] = React.useState<Date | null>(new Date());
